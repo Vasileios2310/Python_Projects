@@ -34,18 +34,15 @@ vathmologies = {
 # Βήμα 1:Εμφάνιση των βιβλίων του λεξικού βιβλιοθήκης
 def display_books():
     print('ISBN | ΤΙΤΛΟΣ - ΣΥΓΓΡΑΦΕΑΣ | ΔΙΑΘΕΣΙΜΟΤΗΤΑ')
-    for x , obj in Library.items():
-        print(x , end="|")
-        for y in obj:
-            if obj['diathesimo'] == True:
-                obj['diathesimo'] = 'ΔΙΑΘΕΣΙΜΟ'
-            print(obj[y] , end="-")
-        print()
+    for isbn, obj in Library.items():
+        diath = 'ΔΙΑΘΕΣΙΜΟ' if obj['diathesimo'] else 'ΔΑΝΕΙΣΜΕΝΟ'
+        print(f"{isbn} | {obj['titlos']} - {obj['syggrafeas']} | {diath}")
+        
     
 # Βήμα 2: ΝΕΟΣ ΔΑΝΕΙΣΜΟΣ (με βάση το ISBN με έλεγχο)
 def add_new_loan():
-    isbn_to_loan = input("Παρακαλώ εισάγετε το επιθυμητό ISBN").strip()
-    full_name = input("Παρακαλώ εισάγετε τον ονοματεπώνυμο σας").strip()
+    isbn_to_loan = input("Παρακαλώ εισάγετε το επιθυμητό ISBN ").strip()
+    full_name = input("Παρακαλώ εισάγετε τον ονοματεπώνυμο σας ").strip()
     
     found = False
     
@@ -73,7 +70,7 @@ def add_new_loan():
 # Βήμα 3: ΕΠΙΣΤΡΟΦΗ ΒΙΒΛΙΟΥ (με βάση το ISBN με έλεγχο)
 # -------------------------------
 def return_book():
-   isbn_to_return = input("Παρακαλώ εισάγετε το ISBN του βιβλίου προς επιστροφή").strip()
+   isbn_to_return = input("Παρακαλώ εισάγετε το ISBN του βιβλίου προς επιστροφή ").strip()
    
    book_exist = False
    
@@ -82,14 +79,14 @@ def return_book():
            book_exist = True
            
            if obj['diathesimo'] == True:
-                print('Το βιβλίο είναι ηδη διαθέσιμο, αρα δεν μπορεί να επιστραφεί')
+                print('Το βιβλίο είναι ηδη διαθέσιμο, αρα δεν μπορεί να επιστραφεί ')
                 return
             
            obj['diathesimo'] = True
            
            while True:
                try:
-                   rate = int(input('Βαθμολογία για το βιβλίο (1 εως 5)'))
+                   rate = int(input('Βαθμολογία για το βιβλίο (1 εως 5) '))
                    
                    if 1 <= rate <= 5:
                        break
@@ -112,7 +109,6 @@ def return_book():
 # Βήμα 4: ΣΤΑΤΙΣΤΙΚΑ ΒΑΘΜΟΛΟΓΙΑΣ (Εύρεση και εμφάνιση ΜΟ Βαθμολογιας κάθε βιβλίου
 #                                 με 1 δεκαδικό ψηφίο και πλήθους αξιολογήσεων)
 # -------------------------------
-print('=====ΣΤΑΤΙΣΤΙΚΑ ΒΑΘΜΟΛΟΓΙΑΣ=====')
 def display_rating_statistics():
     
     library_copy = copy.deepcopy(Library)

@@ -10,20 +10,20 @@ s3 = s[::2]
 #print(s3)
 
 #'ishoJ keetarP yb nohtyP htiw ecnegilletnI laicifitrA'
-s3 = s[-1::-1]
-#print(s3)
+s4 = s[-1::-1]
+#print(s4)
 
 #' tleei '
-s4 = s[10] + s[2] + s[9] + s[14] + s[19] + s[25] + s[10] 
-#print(s4) 
+s5 = s[10] + s[2] + s[9] + s[14] + s[19] + s[25] + s[10] 
+#print(s5) 
 
 #'th Python by Prateek Joshi'
-s5 = s[26:]
-#print(s5)
+s6 = s[26:]
+#print(s6)
 
 #'icial Intelligence with Python by Prateek'
-s6 = s[5:46]
-#print(s6)
+s7 = s[5:46]
+#print(s7)
 
 
 
@@ -100,8 +100,6 @@ print("------------5----------")
 # Υπόδειξη: κάνετε χρήση της συνάρτησης find με το κατάλληλο όρισμα και δημιουργήστε μία έκφραση που να την περιέχει,
 # ώστε να απομονώσετε το όνομα του συγγραφέα για κάθε πιθανή συμβολοσειρά που δόθηκε.
 
-java_books_with_AI = set()
 for item in java_books:
-    index = item.find("by")
-    str_name = item[index:]
-    print(str_name)
+    author = item[item.find(" by ") + 4:]
+    print(author)
