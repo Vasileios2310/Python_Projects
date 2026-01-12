@@ -1,7 +1,6 @@
 import random
 import string
 
-
 characters = list(string.ascii_letters + string.digits + string.punctuation)
 
 def generate_password():
@@ -31,8 +30,7 @@ def generate_password():
     string_password = "".join(password)
     
     print(f"\nGenerated password : {string_password}")
-    
-    
+        
 def main():
     while True:
         option = input("\nDo you want to create the password? ('y' for yes or 'q' for quit): ")
