@@ -28,6 +28,12 @@ def main():
         print(ex)
         
     print("Annotations" , my_add.__annotations__)
+    print("Doc comments" , my_add.__doc__)
+    
+    print('--------------------------------------------------')
+    
+    help(my_add)
+    help(range)
 
 if __name__ == "__main__":
     main()
