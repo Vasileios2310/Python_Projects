@@ -1,0 +1,5 @@
+2026-02-18 22:31:20,792 | ERROR | search application | Error occured : list.index(x): x not in list
+Traceback (most recent call last):
+  File "C:\Users\billk\OneDrive\Desktop\PYTHON_CF\chapter05\24_logging_app.py", line 17, in main
+    index = nums.index(30)
+ValueError: list.index(x): x not in list
