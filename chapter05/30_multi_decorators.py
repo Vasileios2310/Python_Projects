@@ -9,7 +9,6 @@ def log_calls(func):
 
 def measure_time(func):
     """A decorator that measure the execution of the function"""
-    
     def wrapper(*args , **kwargs):
         start_time = time.perf_counter()
         result = func(*args , **kwargs)
