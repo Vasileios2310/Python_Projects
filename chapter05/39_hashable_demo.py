@@ -28,9 +28,12 @@ def main():
         p3: "Point 3"
     }
     
-    print(hash(p1))
-    print(hash(p2))
-    print(hash(p3))
+    # print(hash(p1))
+    # print(hash(p2))
+    # print(hash(p3))
+    
+    print(f"p1 == p3 : {p1 == p3}")
+    print(f"p1 is p3 : {p1 is p3}")
     
     print(p1 == p3)
     
