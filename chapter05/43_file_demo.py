@@ -53,8 +53,7 @@ def delete_file(file_path):
         print(f"File {file_path} deleted successfully")
     except IOError as ex:
         print(f"Error deleting file '{file_path}' : {ex}")
-        
-          
+                 
 def main():
     print("create a file")
     create_file('test.txt' , "This is my first text")

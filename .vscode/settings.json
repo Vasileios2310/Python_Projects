@@ -1,3 +1,4 @@
 {
-    "C_Cpp.copilotHover": "disabled"
+    "C_Cpp.copilotHover": "disabled",
+    "python-envs.defaultEnvManager": "ms-python.python:system"
 }
