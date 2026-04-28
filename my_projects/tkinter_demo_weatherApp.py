@@ -4,7 +4,9 @@ from tkinter import messagebox
 
 class RainData:
     def __init__(self):
-        ## πίνακας έντασης
+        """
+        Αρχικοποιεί δεδομένα έντασης και διάρκειας βροχής
+        """
         self.rain_intesity = np.array(
             [0.0, 1.6, 4.0, 0.0, 0.0, 2.3, 3.6, 0.0, 0.7, 1.5,
              0.0, 2.1, 0.0, 3.2, 0.0, 0.0, 3.7, 1.9, 0.0, 0.0,
@@ -20,6 +22,11 @@ class RainData:
         
         
     def total_rain(self):
+        """
+        Υπολογίζει συνολική διάρκεια βροχής.
+        Υπολογίζει συνολικό ύψος βροχής για τον μήνα
+        """
+        
         total_duration = np.sum(self.rain_duration)
             
         ## ύψος βροχής ανα ημέρα
@@ -32,6 +39,7 @@ class RainData:
                          
     def min_max_rain_by_10(self):
         """
+        Βρίσκει ελάχιστη και μέγιστη ένταση ανά δεκαήμερο
         """
         
         results = []
@@ -45,6 +53,10 @@ class RainData:
         return results
         
     def moving_average(self):
+        """
+        Υπολογίζει κινητό μέσο όρο 5 ημερών
+        """
+        
         results = []
         
         for i in range(23,30):
@@ -56,10 +68,18 @@ class RainData:
         return results
     
     def sorted_numpy(self):
+        """
+        Ταξινομεί τον πίνακα με χρήση NumPy
+        """
+        
         sorted_array = np.sort(self.rain_intesity)
         return sorted_array
     
     def bubble_sort(self):
+        """
+        Υλοποιεί χειροκίνητη ταξινόμηση bubble sort
+        """
+        
         copy_array = self.rain_intesity.copy()
         len_array = len(copy_array)
         
@@ -75,6 +95,10 @@ class RainData:
 
 class RainUI:
     def __init__(self):
+        """
+        Αρχικοποιεί δεδομένα και GUI
+        """
+        
         self.data = RainData()
 
         self.root = tk.Tk()
@@ -86,6 +110,9 @@ class RainUI:
         self.root.mainloop()
 
     def create_widgets(self):
+        """
+        Δημιουργεί κουμπιά και τίτλο στο παράθυρο
+        """
         title = tk.Label(
             self.root,
             text="Ανάλυση Βροχόπτωσης",
@@ -110,6 +137,10 @@ class RainUI:
                 command=self.root.quit).pack(pady=15)
 
     def show_total_stats(self):
+        """
+        Εμφανίζει συνολικά στατιστικά βροχής
+        """
+        
         duration, height = self.data.total_rain()
 
         message = f"Συνολική διάρκεια: {duration} ώρες\n"
@@ -118,6 +149,10 @@ class RainUI:
         self.show_text_window("Συνολικά Στατιστικά", message)
 
     def show_min_max(self):
+        """
+        Εμφανίζει min/max ανά δεκαήμερο
+        """
+        
         results = self.data.min_max_rain_by_10()
 
         message = ""
@@ -129,6 +164,10 @@ class RainUI:
         self.show_text_window("Min / Max ανά δεκαήμερο", message)
 
     def show_moving_avg(self):
+        """
+        Εμφανίζει κινητό μέσο όρο
+        """
+        
         results = self.data.moving_average()
 
         message = ""
@@ -139,6 +178,10 @@ class RainUI:
         self.show_text_window("Κινητός Μέσος Όρος", message)
 
     def show_sorting(self):
+        """
+        Συγκρίνει ταξινόμηση NumPy και bubble sort
+        """
+        
         sorted_np = self.data.sorted_numpy()
         sorted_bubble = self.data.bubble_sort()
 
@@ -151,6 +194,10 @@ class RainUI:
         self.show_text_window("Ταξινόμηση", message)
         
     def show_text_window(self, title, content):
+        """
+        Δημιουργεί νέο παράθυρο για εμφάνιση κειμένου
+        """
+        
         window = tk.Toplevel(self.root)
         window.title(title)
         window.geometry("500x350")
@@ -173,10 +220,6 @@ class RainUI:
 if __name__ == "__main__":
     app = RainUI() 
            
-      
-      
-      
-      
                     
 # data = RainData()
 # print(data.rain_intesity)  
